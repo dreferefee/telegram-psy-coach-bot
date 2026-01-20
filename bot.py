@@ -1,19 +1,13 @@
-from telegram import (
-    Update,
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-)
-from telegram.ext import (
-    ApplicationBuilder,
-    CommandHandler,
-    CallbackQueryHandler,
-    MessageHandler,
-    ContextTypes,
-    filters,
-)
+import os
+
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, ContextTypes, MessageHandler, filters
 
 TOKEN = os.getenv("BOT_TOKEN")
 OWNER_CHAT_ID = 7749860407
+
+if TOKEN is None:
+    raise ValueError("BOT_TOKEN не задан! Проверь Environment Variables в Render")
 
 
 # ---------- ВСПОМОГАТЕЛЬНО ----------
