@@ -1,13 +1,33 @@
 import os
 
+# 2️⃣ Импортируем телеграм
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, ContextTypes, MessageHandler, filters
 
-TOKEN = os.getenv("BOT_TOKEN")
+# 3️⃣ Токен берём из переменной окружения
+BOT_TOKEN = os.getenv("BOT_TOKEN")  # <- теперь имя совпадает с использованием ниже
+
+# 4️⃣ ID владельца бота
 OWNER_CHAT_ID = 7749860407
 
-if TOKEN is None:
+# 5️⃣ Проверка
+if BOT_TOKEN is None:
     raise ValueError("BOT_TOKEN не задан! Проверь Environment Variables в Render")
+    # 6️⃣ Пример запуска приложения
+def main():
+    # создаём приложение
+    app = ApplicationBuilder().token(BOT_TOKEN).build()
+
+    # добавление хендлеров (пример)
+    app.add_handler(CommandHandler("start", start))          # стартовое сообщение
+    app.add_handler(CallbackQueryHandler(button_handler))    # кнопки
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, user_message_handler))  # ответы пользователя
+
+    # запуск бота
+    app.run_polling()
+
+if __name__ == "__main__":
+    main()
 
 
 # ---------- ВСПОМОГАТЕЛЬНО ----------
