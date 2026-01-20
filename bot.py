@@ -12,7 +12,7 @@ from telegram.ext import (
     filters,
 )
 
-TOKEN = os.getenv("8561002084:AAGa1MGTZ-ZaJURJjJztvqqa9of93MURZlQ")
+TOKEN = os.getenv("BOT_TOKEN")
 OWNER_CHAT_ID = 7749860407
 
 
