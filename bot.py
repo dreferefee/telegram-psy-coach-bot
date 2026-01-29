@@ -9,7 +9,7 @@ from telegram.ext import (
 )
 
 # === НАСТРОЙКИ ===
-BOT_TOKEN = "8561002084:AAGa1MGTZ-ZaJURJjJztvqqa9of93MURZlQ"
+BOT_TOKEN = "8561002084:AAH1X4e07EzXaGjNZBVG0M13Cp_PCRfoNkw"
 OWNER_CHAT_ID = 7749860407
 
 
